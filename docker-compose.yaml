@@ -1,0 +1,16 @@
+version: "3"
+
+services: 
+  backend:
+    build:
+      context: ./
+      dockerfile: .devcontainer/Dockerfile
+    container_name: anaconda_container
+    ports:
+      # JupyterNotebook
+      - "8888:8888"
+    volumes:
+      - "./src:/home/node/workspace"
+    working_dir: /home/node/workspace
+    tty: true
+    stdin_open: true
